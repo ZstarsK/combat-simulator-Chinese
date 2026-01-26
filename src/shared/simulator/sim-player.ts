@@ -621,7 +621,7 @@ export class SimPlayer extends Player {
         quantity = Math.min(this.manager.bank.getQty(item), quantity);
 
         if (quantity === 0) {
-            throw new Error('Tried to equip item when none is owned.');
+            throw new Error('尝试装备物品时，未拥有该物品。');
         }
 
         const existingSlot = this.equipment.getSlotOfItem(item);
@@ -642,7 +642,7 @@ export class SimPlayer extends Player {
         }
 
         if (!item.isModded && !this.game.checkRequirements(item.equipRequirements, true)) {
-            notifyPlayer(this.game.attack, 'Could not equip item due to requirements not being met.', 'danger');
+            notifyPlayer(this.game.attack, '由于未满足要求，无法装备物品。', 'danger');
             return false;
         }
 

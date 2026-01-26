@@ -199,7 +199,7 @@ export class Plotter extends HTMLElement {
 
                 this._updateCrosses();
 
-                Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+                Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
             }
 
             Global.simulation.dungeonSimFilter[dungeonId] = checked;
@@ -219,7 +219,7 @@ export class Plotter extends HTMLElement {
 
                 this._updateCrosses();
 
-                Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+                Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
             }
 
             Global.simulation.strongholdSimFilter[strongholdId] = checked;
@@ -239,7 +239,7 @@ export class Plotter extends HTMLElement {
 
                 this._updateCrosses();
 
-                Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+                Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
             }
 
             Global.simulation.depthSimFilter[depthId] = checked;
@@ -269,7 +269,7 @@ export class Plotter extends HTMLElement {
 
                 this._updateCrosses();
 
-                Notify.message('Slayer Task has been enabled and simulating as being on task.', 'success');
+                Notify.message('屠杀者任务已启用，模拟在任务中。', 'success');
             }
 
             Global.simulation.slayerSimFilter[taskId] = checked;
@@ -354,7 +354,7 @@ export class Plotter extends HTMLElement {
                 Global.simulation.slayerSimFilter[taskId] = !toggle;
             }
 
-            Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+            Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
         }
 
         this.dungeonsToggled = toggle;
@@ -377,7 +377,7 @@ export class Plotter extends HTMLElement {
                 Global.simulation.slayerSimFilter[taskId] = !toggle;
             }
 
-            Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+            Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
         }
 
         this.strongholdsToggled = toggle;
@@ -400,7 +400,7 @@ export class Plotter extends HTMLElement {
                 Global.simulation.slayerSimFilter[taskId] = !toggle;
             }
 
-            Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+            Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
         }
 
         this.depthsToggled = toggle;
@@ -433,11 +433,11 @@ export class Plotter extends HTMLElement {
                 Global.simulation.depthSimFilter[depthId] = !toggle;
             }
 
-            Notify.message('Slayer Task has been enabled and simulating as being on task.', 'success');
+            Notify.message('屠杀者任务已启用，模拟在任务中。', 'success');
         } else if (!toggle && Global.game.combat.player.isSlayerTask) {
             this._slayer._toggle(false);
             Global.game.combat.player.isSlayerTask = toggle;
-            Notify.message('Slayer Task has been disabled and simulating not being on task.', 'danger');
+            Notify.message('屠杀者任务已禁用，模拟不在任务中。', 'danger');
         }
 
         this.slayerToggled = toggle;
@@ -461,12 +461,12 @@ export class Plotter extends HTMLElement {
 
     public _selectActiveTarget() {
         if (!Global.melvor.combat.isActive) {
-            Notify.message('You are not in combat in the actual game, could not select anything', 'danger');
+            Notify.message('您在实际游戏中不在战斗中，无法选择任何内容', 'danger');
             return;
         }
 
         if (Global.stores.plotter.state.isInspecting) {
-            Notify.message('Cannot select active target while inspecting a dungeon', 'danger');
+            Notify.message('检查地牢时无法选择活动目标', 'danger');
             return;
         }
 
@@ -508,7 +508,7 @@ export class Plotter extends HTMLElement {
 
         // not found
         if (index === -1) {
-            Notify.message('Could not locate a target to select', 'danger');
+            Notify.message('无法找到要选择的目标', 'danger');
             return;
         }
 

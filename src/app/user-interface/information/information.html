@@ -1,5 +1,5 @@
 <template id="mcs-information-template">
-    <div id="mcs-information-title" class="mcs-information-title mb-2">Information</div>
+    <div id="mcs-information-title" class="mcs-information-title mb-2">信息</div>
 
     <div id="mcs-monster-information" class="mcs-monster-information">
         <div class="mcs-monster">
@@ -81,7 +81,7 @@
         <mcs-line-item data-mcsTooltip>
             <span slot="label"><span>Runes</span><span class="mcs-information-unit">/h</span></span>
             <span slot="value" id="mcs-information-runes">0</span>
-            <div data-mcsTooltipContent id="mcs-information-runes-tooltip">No runes used.</div>
+            <div data-mcsTooltipContent id="mcs-information-runes-tooltip">未使用符文。</div>
         </mcs-line-item>
 
         <mcs-line-item>
@@ -100,7 +100,7 @@
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label"><span>Tablets per type</span><span class="mcs-information-unit">/h</span></span>
+            <span slot="label"><span>每种类型石板</span><span class="mcs-information-unit">/h</span></span>
             <span slot="value" id="mcs-information-tablets">0</span>
         </mcs-line-item>
 
@@ -110,36 +110,36 @@
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label"><span>Est. Death Rate</span></span>
+            <span slot="label"><span>预计死亡率</span></span>
             <span slot="value" id="mcs-information-estimated-death-rate">0</span>
             <div data-mcsTooltipContent id="mcs-information-death-rate-tooltip">N/A</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label"><span>Highest Hit Taken</span></span>
+            <span slot="label"><span>最高承受伤害</span></span>
             <span slot="value" id="mcs-information-highest-hit-taken">0</span>
-            <div data-mcsTooltipContent id="mcs-information-highest-hit-tooltip">Highest Hit Taken: 0</div>
+            <div data-mcsTooltipContent id="mcs-information-highest-hit-tooltip">最高承受伤害：0</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label"><span>Highest Reflect Taken</span></span>
+            <span slot="label"><span>最高反射伤害</span></span>
             <span slot="value" id="mcs-information-highest-reflect-taken">0</span>
-            <div data-mcsTooltipContent id="mcs-information-highest-reflect-tooltip">Highest Reflect Taken: 0</div>
+            <div data-mcsTooltipContent id="mcs-information-highest-reflect-tooltip">最高反射伤害：0</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label"><span>Lowest Hitpoints</span></span>
+            <span slot="label"><span>最低生命值</span></span>
             <span slot="value" id="mcs-information-lowest-hitpoints">0</span>
-            <div data-mcsTooltipContent id="mcs-information-lowest-hitpoints-tooltip">Lowest Hitpoints: 0</div>
+            <div data-mcsTooltipContent id="mcs-information-lowest-hitpoints-tooltip">最低生命值：0</div>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label"><span>Kill Time (s)</span></span>
+            <span slot="label"><span>击杀时间（秒）</span></span>
             <span slot="value" id="mcs-information-kill-time">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label"><span>Kills</span><span class="mcs-information-unit">/h</span></span>
+            <span slot="label"><span>击杀数</span><span class="mcs-information-unit">/h</span></span>
             <span slot="value" id="mcs-information-kills">0</span>
         </mcs-line-item>
 
@@ -165,7 +165,7 @@
             </span>
             <span slot="value" id="mcs-information-drops">0</span>
             <div data-mcsTooltipContent id="mcs-information-drops-tooltip">
-                Kills multiplied by doubling chance. (includes chance to receive no drops)
+                击杀数乘以双倍几率。（包括没有掉落的机会）
             </div>
         </mcs-line-item>
 
@@ -179,7 +179,7 @@
                 <span id="mcs-information-pet-label">Pet (%)</span><span class="mcs-information-unit">/h</span>
             </span>
             <span slot="value" id="mcs-information-pet">0</span>
-            <div data-mcsTooltipContent>The average percent chance for a pet to drop.</div>
+            <div data-mcsTooltipContent>宠物掉落的平均百分比几率。</div>
         </mcs-line-item>
 
         <mcs-line-item id="mcs-information-mark-line-item" data-mcsTooltip>
@@ -188,8 +188,7 @@
             </span>
             <span slot="value" id="mcs-information-mark">0</span>
             <div data-mcsTooltipContent>
-                The average percent chance for any mark of this skill to drop. The chance for individual marks are
-                below.
+                此技能任何标记掉落的平均百分比几率。各个标记的几率如下。
                 <div id="mcs-information-mark-tooltip" class="mcs-information-mark-tooltip"></div>
             </div>
         </mcs-line-item>

@@ -45,14 +45,14 @@ export class PrayerTooltip extends HTMLElement {
 
             const requirement = createElement('small', { classList: ['text-warning', 'd-block', 'pt-2'] });
 
-            let requirements = `Requires:`;
+            let requirements = `要求：`;
 
             if (prayer.level) {
-                requirements += `<div>Level: <span class="text-white">${prayer.level}</span></div>`;
+                requirements += `<div>等级：<span class="text-white">${prayer.level}</span></div>`;
             }
 
             if (prayer.abyssalLevel) {
-                requirements += `<div>Abyssal Level: <span class="text-white">${prayer.abyssalLevel}</span></div>`;
+                requirements += `<div>深渊等级：<span class="text-white">${prayer.abyssalLevel}</span></div>`;
             }
 
             requirement.innerHTML = requirements;

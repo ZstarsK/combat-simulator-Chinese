@@ -8,7 +8,7 @@ export abstract class Format {
 
         if (name === undefined) {
             Global.logger.error(`Unknown monster in getMonsterName`, monsterId);
-            return 'Unknown Monster';
+            return '未知怪物';
         }
 
         return this.replaceApostrophe(name);

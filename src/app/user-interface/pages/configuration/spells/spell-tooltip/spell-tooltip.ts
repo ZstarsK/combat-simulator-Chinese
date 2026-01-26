@@ -36,18 +36,18 @@ export class SpellTooltip extends HTMLElement {
 
             const requirement = createElement('small', { classList: ['text-warning', 'd-block', 'pt-2'] });
 
-            let requirements = `Requires:`;
+            let requirements = `要求：`;
 
             if (spell.level) {
-                requirements += `<div>Level: <span class="text-white">${spell.level}</span></div>`;
+                requirements += `<div>等级：<span class="text-white">${spell.level}</span></div>`;
             }
 
             if (spell.abyssalLevel) {
-                requirements += `<div>Abyssal Level: <span class="text-white">${spell.abyssalLevel}</span></div>`;
+                requirements += `<div>深渊等级：<span class="text-white">${spell.abyssalLevel}</span></div>`;
             }
 
             if (spell.requiredItem) {
-                requirements += `<div>Item Equipped: <img src="${spell.requiredItem.media}" width="14" height="14" /> <span class="text-white">${spell.requiredItem.name}</span></div>`;
+                requirements += `<div>已装备物品：<img src="${spell.requiredItem.media}" width="14" height="14" /> <span class="text-white">${spell.requiredItem.name}</span></div>`;
             }
 
             requirement.innerHTML = requirements;

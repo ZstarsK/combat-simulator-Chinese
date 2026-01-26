@@ -23,7 +23,7 @@ export class UserInterface {
         this.main.prepend(backdrop);
         document.body.append(createElement('div', { id: 'mcs-backdrop' }));
 
-        sidebar.category('Modding').item('Combat Simulator', {
+        sidebar.category('Modding').item('战斗模拟器', {
             icon: 'assets/media/skills/combat/combat.png',
             itemClass: 'mcs-combat-simulator',
             onClick: () => this.main.toggle()

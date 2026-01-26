@@ -493,7 +493,7 @@ export class SimManager extends CombatManager {
 
                 if (Global.get.cancelStatus) {
                     success = false;
-                    failMessage = 'Simulation was cancelled';
+                    failMessage = '模拟已取消';
                     break;
                 }
 
@@ -537,7 +537,7 @@ export class SimManager extends CombatManager {
             this.player.modifiers.flatBarrierDamage <= 0
         ) {
             success = false;
-            failMessage = 'You have no summoning damage equipped';
+            failMessage = '您没有装备召唤伤害';
         }
 
         const hasRequirement = this.game.checkRequirements(
@@ -554,12 +554,12 @@ export class SimManager extends CombatManager {
 
         if (this.isCurrentDamageTypeDisallowed(area, false)) {
             success = false;
-            failMessage = 'You cannot use your current Damage Type in this area.';
+            failMessage = '您无法在此区域使用当前的伤害类型。';
         }
 
         if (!this.checkDamageTypeRequirementsForMonster(monster, false)) {
             success = false;
-            failMessage = 'This monster is immune to your current Damage Type';
+            failMessage = '此怪物对您当前的伤害类型免疫';
         }
 
         return { success, failMessage };

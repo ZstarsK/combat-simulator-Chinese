@@ -1,123 +1,123 @@
 <template id="mcs-out-of-combat-stats-template">
-    <div class="mb-2">Out of Combat Stats</div>
+    <div class="mb-2">战斗外统计</div>
 
     <div class="mcs-out-of-combat-stat-fields">
         <mcs-line-item>
-            <span slot="label">Attack Interval</span>
+            <span slot="label">攻击间隔</span>
             <span slot="value" id="mcs-stat-attack-interval">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Summoning Interval</span>
+            <span slot="label">召唤间隔</span>
             <span slot="value" id="mcs-stat-summoning-interval">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Respawn Interval</span>
+            <span slot="label">重生间隔</span>
             <span slot="value" id="mcs-stat-respawn-interval">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Min Hit</span>
+            <span slot="label">最小伤害</span>
             <span slot="value" id="mcs-stat-min-hit">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Max Hit</span>
+            <span slot="label">最大伤害</span>
             <span slot="value" id="mcs-stat-max-hit">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Summoning Max Hit</span>
+            <span slot="label">召唤最大伤害</span>
             <img slot="image" src="assets/media/skills/summoning/summoning.svg" />
             <span slot="value" id="mcs-stat-summoning-max-hit">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Barrier Max Hit</span>
+            <span slot="label">屏障最大伤害</span>
             <img slot="image" src="assets/media/skills/combat/barrier.svg" />
             <span slot="value" id="mcs-stat-barrier-max-hit">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Accuracy</span>
+            <span slot="label">命中率</span>
             <span slot="value" id="mcs-stat-accuracy">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Crit Chance (%)</span>
+            <span slot="label">暴击几率 (%)</span>
             <span slot="value" id="mcs-stat-crit-chance">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Crit Damage (%)</span>
+            <span slot="label">暴击伤害 (%)</span>
             <span slot="value" id="mcs-stat-crit-damage">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Melee Evasion</span>
+            <span slot="label">近战闪避</span>
             <img slot="image" src="assets/media/skills/combat/attack.svg" />
             <span slot="value" id="mcs-stat-melee-evasion">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Ranged Evasion</span>
+            <span slot="label">远程闪避</span>
             <img slot="image" src="assets/media/skills/ranged/ranged.svg" />
             <span slot="value" id="mcs-stat-ranged-evasion">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Magic Evasion</span>
+            <span slot="label">魔法闪避</span>
             <img slot="image" src="assets/media/skills/magic/magic.svg" />
             <span slot="value" id="mcs-stat-magic-evasion">0</span>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label">Max Hitpoints</span>
+            <span slot="label">最大生命值</span>
             <img slot="image" src="assets/media/skills/hitpoints/hitpoints.svg" />
             <span slot="value" id="mcs-stat-max-hitpoints">0</span>
-            <div data-mcsTooltipContent id="mcs-stat-max-hitpoints-tooltip">Max Hitpoints: 0</div>
+            <div data-mcsTooltipContent id="mcs-stat-max-hitpoints-tooltip">最大生命值：0</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label">Damage Reduction</span>
+            <span slot="label">伤害减免</span>
             <img slot="image" src="assets/media/skills/combat/normal_damage.svg" />
             <span slot="value" id="mcs-stat-damage-reduction">0</span>
-            <div data-mcsTooltipContent id="mcs-stat-uncapped-damage-reduction">Uncapped Damage Reduction: 0</div>
+            <div data-mcsTooltipContent id="mcs-stat-uncapped-damage-reduction">未封顶伤害减免：0</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip class="mcs-stat-abyssal-resistance-container">
-            <span slot="label">Abyssal Resistance</span>
+            <span slot="label">深渊抗性</span>
             <img slot="image" src="assets/media/skills/combat/abyssal_damage.svg" />
             <span slot="value" id="mcs-stat-abyssal-resistance">0</span>
-            <div data-mcsTooltipContent id="mcs-stat-uncapped-abyssal-resistance">Uncapped Abyssal Resistance: 0</div>
+            <div data-mcsTooltipContent id="mcs-stat-uncapped-abyssal-resistance">未封顶深渊抗性：0</div>
         </mcs-line-item>
 
         <mcs-line-item data-mcsTooltip>
-            <span slot="label">Auto Eat Threshold</span>
+            <span slot="label">自动进食阈值</span>
             <span slot="value" id="mcs-stat-auto-eat-threshold">0</span>
-            <div data-mcsTooltipContent id="mcs-stat-auto-eat-threshold-tooltip">Auto Eat Threshold: 0</div>
+            <div data-mcsTooltipContent id="mcs-stat-auto-eat-threshold-tooltip">自动进食阈值：0</div>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Slayer Negation</span>
+            <span slot="label">屠杀者抵消</span>
             <img slot="image" src="assets/media/skills/slayer/slayer.svg" />
             <span slot="value" id="mcs-stat-slayer-area-negation">0</span>
         </mcs-line-item>
 
         <mcs-line-item class="mcs-stat-abyssal-slayer-area-negation-container">
-            <span slot="label">A. Slayer Negation</span>
+            <span slot="label">深渊屠杀者抵消</span>
             <img slot="image" src="assets/media/skills/slayer/slayer.svg" />
             <span slot="value" id="mcs-stat-abyssal-slayer-area-negation">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">Drop Doubling (%)</span>
+            <span slot="label">掉落双倍 (%)</span>
             <span slot="value" id="mcs-stat-drop-doubling">0</span>
         </mcs-line-item>
 
         <mcs-line-item>
-            <span slot="label">GP Multiplier</span>
+            <span slot="label">GP 倍数</span>
             <span slot="value" id="mcs-stat-gp-multiplier">0</span>
         </mcs-line-item>
     </div>
@@ -125,9 +125,9 @@
     <mcs-simulate-buttons></mcs-simulate-buttons>
 
     <button id="mcs-active-target" class="mcs-button mcs-active-target" data-mcsTooltip>
-        Select Active Target
+        选择活动目标
         <div data-mcsTooltipContent>
-            Select the target you are actively fighting in the actual game. If not in combat, does nothing.
+            选择您在实际游戏中正在战斗的目标。如果不在战斗中，则无效。
         </div>
     </button>
 </template>

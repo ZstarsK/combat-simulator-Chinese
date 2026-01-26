@@ -138,7 +138,7 @@ export class PotionsPage extends HTMLElement {
 
     private _updateRecipe(recipe: HerbloreRecipe) {
         if (!this._tier._selected?.value) {
-            Global.logger.error(`No potion tier has been selected`, this._tier._selected?.value);
+            Global.logger.error(`未选择药水等级`, this._tier._selected?.value);
             return;
         }
 
@@ -186,7 +186,7 @@ export class PotionsPage extends HTMLElement {
 
     private _update() {
         if (!this._tier._selected?.value) {
-            Global.logger.error(`No potion tier has been selected`, this._tier._selected?.value);
+            Global.logger.error(`未选择药水等级`, this._tier._selected?.value);
             return;
         }
 
@@ -220,7 +220,7 @@ export class PotionsPage extends HTMLElement {
             );
 
             if (!recipe) {
-                Global.logger.error(`Could not locate potion`, Global.game.combat.player.potion.id, potionTier);
+                Global.logger.error(`无法找到药水`, Global.game.combat.player.potion.id, potionTier);
             }
 
             Global.game.combat.player.setPotion(recipe.potions[potionTier]);

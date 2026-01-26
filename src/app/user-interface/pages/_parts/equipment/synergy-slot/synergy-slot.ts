@@ -51,7 +51,7 @@ export class SynergySlot extends HTMLElement {
         if (synergy) {
             this._tooltip.innerHTML = `<div class="text-info">${synergy.description}</div>`;
         } else {
-            this._tooltip.innerHTML = 'Synergy Locked';
+            this._tooltip.innerHTML = '协同效果已锁定';
         }
 
         TooltipController.update(this);

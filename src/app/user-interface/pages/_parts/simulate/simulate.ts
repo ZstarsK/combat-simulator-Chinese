@@ -50,7 +50,7 @@ export class SimulateButtons extends HTMLElement {
         for (const simulate of Array.from(Global.userInterface.main.querySelectorAll('mcs-simulate-buttons'))) {
             simulate._simulateSelected.disabled = false;
             simulate._simulateAll.disabled = false;
-            simulate._simulateAll.textContent = 'All';
+            simulate._simulateAll.textContent = '全部';
         }
     }
 
@@ -59,7 +59,7 @@ export class SimulateButtons extends HTMLElement {
             for (const simulate of Array.from(Global.userInterface.main.querySelectorAll('mcs-simulate-buttons'))) {
                 simulate._simulateSelected.disabled = true;
                 simulate._simulateAll.disabled = true;
-                simulate._simulateAll.textContent = 'Cancelling...';
+                simulate._simulateAll.textContent = '取消中...';
             }
 
             return Global.simulation.cancel();

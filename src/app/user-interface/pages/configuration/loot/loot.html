@@ -1,29 +1,29 @@
 <template id="mcs-loot-template">
-    <mcs-page-title page-title="Loot" description="Modify settings focused on drops."></mcs-page-title>
+    <mcs-page-title page-title="战利品" description="修改专注于掉落的设置。"></mcs-page-title>
 
     <mcs-switch
         id="mcs-loot-only-selected-target"
         data-mcsOnText="Yes"
         data-mcsOffText="No"
-        data-mcsName="Only Selected Target"
-        data-mcsDescription="Enable to only see items for the selected target in the dropdown."
+        data-mcsName="仅所选目标"
+        data-mcsDescription="启用后，下拉菜单中仅显示所选目标的物品。"
     ></mcs-switch>
 
     <mcs-switch
         id="mcs-loot-only-undiscovered"
         data-mcsOnText="Yes"
         data-mcsOffText="No"
-        data-mcsName="Only Undiscovered"
-        data-mcsDescription="Enable to only see undiscovered items in the dropdown."
+        data-mcsName="仅未发现"
+        data-mcsDescription="启用后，下拉菜单中仅显示未发现的物品。"
     ></mcs-switch>
 
     <mcs-dropdown id="mcs-loot-items" class="mcs-loot-item"></mcs-dropdown>
 
     <mcs-switch
         id="mcs-loot-shards-to-chest"
-        data-mcsOnText="Calculate as loot from Scrolls"
-        data-mcsOffText="Calculate as Shards"
-        data-mcsName="Upgrade Shards to Scrolls"
-        data-mcsDescription="Enable to calculate gp for god dungeons using the loot from scrolls instead of the shards themselves."
+        data-mcsOnText="按卷轴战利品计算"
+        data-mcsOffText="按碎片计算"
+        data-mcsName="将碎片升级为卷轴"
+        data-mcsDescription="启用后，使用卷轴的战利品而不是碎片本身来计算神之地牢的GP。"
     ></mcs-switch>
 </template>

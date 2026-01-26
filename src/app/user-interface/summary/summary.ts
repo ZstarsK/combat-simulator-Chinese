@@ -74,7 +74,7 @@ export class SummaryPage extends HTMLElement {
             });
 
             container.append(
-                createElement('div', { classList: ['mcs-summary-agility-course-name'], text: `${realm.name} Course` })
+                createElement('div', { classList: ['mcs-summary-agility-course-name'], text: `${realm.name} 课程` })
             );
 
             const agilityCourse = createElement('mcs-agility-course', {
@@ -131,7 +131,7 @@ export class SummaryPage extends HTMLElement {
                 container.append(this._lineItem(prayer.name, [prayer.media]));
             }
         } else {
-            container.append(this._lineItem('No Prayers', [Global.game.prayer.media]));
+            container.append(this._lineItem('无祈祷', [Global.game.prayer.media]));
         }
 
         if (Global.game.combat.player.potion) {
@@ -139,7 +139,7 @@ export class SummaryPage extends HTMLElement {
                 this._lineItem(Global.game.combat.player.potion.name, [Global.game.combat.player.potion.media])
             );
         } else {
-            container.append(this._lineItem('No Potion', [Global.game.herblore.media]));
+            container.append(this._lineItem('无药水', [Global.game.herblore.media]));
         }
 
         if (Global.game.combat.player.attackType === 'magic') {
@@ -150,19 +150,19 @@ export class SummaryPage extends HTMLElement {
             );
 
             container.append(
-                this._lineItem(Global.game.combat.player.spellSelection.curse?.name ?? 'No Curse', [
+                this._lineItem(Global.game.combat.player.spellSelection.curse?.name ?? '无诅咒', [
                     Global.game.combat.player.spellSelection.curse?.media ?? 'assets/media/skills/combat/curses.svg'
                 ])
             );
 
             container.append(
-                this._lineItem(Global.game.combat.player.spellSelection.aurora?.name ?? 'No Aurora', [
+                this._lineItem(Global.game.combat.player.spellSelection.aurora?.name ?? '无极光', [
                     Global.game.combat.player.spellSelection.aurora?.media ?? 'assets/media/skills/combat/auroras.svg'
                 ])
             );
         } else if (Global.game.combat.player.modifiers.allowNonMagicCurses > 0) {
             container.append(
-                this._lineItem(Global.game.combat.player.spellSelection.curse?.name ?? 'No Curse', [
+                this._lineItem(Global.game.combat.player.spellSelection.curse?.name ?? '无诅咒', [
                     Global.game.combat.player.spellSelection.curse?.media ?? 'assets/media/skills/combat/curses.svg'
                 ])
             );
@@ -185,7 +185,7 @@ export class SummaryPage extends HTMLElement {
                         ])
                     );
                 } else {
-                    container.append(this._lineItem('No Point of Interest', [Global.game.cartography.media]));
+                    container.append(this._lineItem('无兴趣点', [Global.game.cartography.media]));
                 }
             }
         }
@@ -239,14 +239,14 @@ export class SummaryPage extends HTMLElement {
         container.append(this._lineItem(autoEat?._selected?.text, ['assets/media/shop/autoeat.svg']));
 
         container.append(
-            this._lineItem('Manually Eating', [
+            this._lineItem('手动进食', [
                 Global.game.combat.player.isManualEating ? this.enabled : this.disabled,
                 Global.game.cooking.media
             ])
         );
 
         container.append(
-            this._lineItem('Slayer Task', [
+            this._lineItem('屠杀者任务', [
                 Global.game.combat.player.isSlayerTask ? this.enabled : this.disabled,
                 Global.game.slayer.media
             ])
@@ -254,7 +254,7 @@ export class SummaryPage extends HTMLElement {
 
         if (cloudManager.hasItAEntitlementAndIsEnabled) {
             container.append(
-                this._lineItem('Corrupted', [
+                this._lineItem('已腐化', [
                     Global.game.combat.player.isAutoCorrupt ? this.enabled : this.disabled,
                     Global.game.corruption.media
                 ])
@@ -265,7 +265,7 @@ export class SummaryPage extends HTMLElement {
 
         if (solarEclipse) {
             container.append(
-                this._lineItem('Solar Eclipse', [
+                this._lineItem('日食', [
                     Global.game.township?.townData?.season?.id === solarEclipse.id ? this.enabled : this.disabled,
                     solarEclipse?.media
                 ])
@@ -276,7 +276,7 @@ export class SummaryPage extends HTMLElement {
 
         if (eternalDarkness) {
             container.append(
-                this._lineItem('Eternal Darkness', [
+                this._lineItem('永恒黑暗', [
                     Global.game.township?.townData?.season?.id === eternalDarkness.id ? this.enabled : this.disabled,
                     eternalDarkness?.media
                 ])
@@ -297,7 +297,7 @@ export class SummaryPage extends HTMLElement {
             runeContainer.append(
                 createElement('div', {
                     classList: ['mcs-summary-rune-title'],
-                    text: `Runes / ${Global.stores.plotter.timeOption}`
+                    text: `符文 / ${Global.stores.plotter.timeOption}`
                 })
             );
 

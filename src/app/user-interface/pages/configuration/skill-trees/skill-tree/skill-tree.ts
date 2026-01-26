@@ -130,7 +130,7 @@ export class SkillTreeInterface extends HTMLElement {
         const costs = this._getNodeCosts(this._tree, node).innerHTML;
 
         if (costs) {
-            tooltip.innerHTML += `<br /><small><div class="text-warning mt-2">Requires:</div>${costs}</small>`;
+            tooltip.innerHTML += `<br /><small><div class="text-warning mt-2">要求：</div>${costs}</small>`;
         }
     }
 

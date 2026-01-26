@@ -53,7 +53,7 @@ export abstract class Main {
         try {
             SaveSlot.init();
         } catch (error) {
-            Global.logger.error('Failed to initialise indexeddb', error);
+            Global.logger.error('初始化 indexeddb 失败', error);
         }
 
         Global.context
@@ -149,7 +149,7 @@ export abstract class Main {
 
                 if (isWrongVersion) {
                     Global.logger.log(
-                        `v${Global.context.version} loaded, but simulation results may be inaccurate due to game version incompatibility.`
+                        `v${Global.context.version} 已加载，但由于游戏版本不兼容，模拟结果可能不准确。`
                     );
 
                     localStorage.setItem(this.versionKey, gameVersion);
@@ -168,7 +168,7 @@ export abstract class Main {
             }
         } else {
             Global.logger.warn(
-                `Did not load v${Global.context.version} due to user declining to load an incompatible version.`
+                `由于用户拒绝加载不兼容版本，未加载 v${Global.context.version}。`
             );
         }
     }
@@ -184,17 +184,17 @@ export abstract class Main {
             const dialog = createElement('mcs-dialog', { id: 'mcs-wrong-version' });
 
             dialog.innerHTML = `
-                <div slot="header">Incompatible Game Version</div>
+                <div slot="header">不兼容的游戏版本</div>
 
                 <div slot="content">
-                    <div>This version of Combat Simulator has been tested for v${this.gameVersion.major}.${this.gameVersion.minor}.${this.gameVersion.patch}, but Melvor is running ${gameVersion}. There is no guarantee that Combat Simulator will work as expected. </div>
+                    <div>此版本的战斗模拟器已针对 v${this.gameVersion.major}.${this.gameVersion.minor}.${this.gameVersion.patch} 进行测试，但 Melvor 正在运行 ${gameVersion}。无法保证战斗模拟器能正常工作。</div>
                     <br />
-                    <div>Do you want to try loading the simulator anyway?</div>
+                    <div>您是否仍要尝试加载模拟器？</div>
                 </div>
 
                 <div slot="footer">
-                    <button id="mcs-wrong-version-cancel" class="mcs-button-secondary">Cancel</button>
-                    <button id="mcs-wrong-version-load" class="mcs-button">Try Load</button>
+                    <button id="mcs-wrong-version-cancel" class="mcs-button-secondary">取消</button>
+                    <button id="mcs-wrong-version-load" class="mcs-button">尝试加载</button>
                 </div>
             `;
 
@@ -266,23 +266,23 @@ export abstract class Main {
             const dialog = createElement('mcs-dialog', { id: 'mcs-invalid-gamemode' });
 
             dialog.innerHTML = `
-                <div slot="header">[Combat Simulator] Gamemode not registered</div>
+                <div slot="header">[战斗模拟器] 游戏模式未注册</div>
 
                 <div slot="content">
-                    <div>Your gamemode '${Global.melvor.currentGamemode.name}' has not been registered with Combat Simulator.</div>
+                    <div>您的游戏模式 '${Global.melvor.currentGamemode.name}' 尚未在战斗模拟器中注册。</div>
                     <br />
-                    <div>Please contact the author of '${Global.melvor.currentGamemode.name}' and ask them to register their mod with Combat Simulator. Your gamemode will default to Standard within Combat Simulator.</div>
+                    <div>请联系 '${Global.melvor.currentGamemode.name}' 的作者，要求他们在战斗模拟器中注册其模组。您的游戏模式将在战斗模拟器中默认为标准模式。</div>
                     <mcs-switch
                         id="mcs-invalid-gamemode-ignore"
                         style="margin-top: 20px; display: block;"
-                        data-mcsOnText="Yes"
-                        data-mcsOffText="No"
-                        data-mcsName="Ignore future invalid gamemode warnings">
+                        data-mcsOnText="是"
+                        data-mcsOffText="否"
+                        data-mcsName="忽略未来的无效游戏模式警告">
                     </mcs-switch>
                 </div>
 
                 <div slot="footer">
-                    <button id="mcs-no-gamemode-ok" class="mcs-button">Ok</button>
+                    <button id="mcs-no-gamemode-ok" class="mcs-button">确定</button>
                 </div>
             `;
 

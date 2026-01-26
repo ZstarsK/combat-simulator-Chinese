@@ -295,7 +295,7 @@ export class Information extends HTMLElement {
                         stat.element.parentElement.toggleAttribute('data-mcsTooltipDisabled', false);
 
                         stat.tooltip.innerHTML =
-                            '<div class="mcs-realmed-text">This entry has data for other realms.</div>';
+                            '<div class="mcs-realmed-text">此条目包含其他领域的数据。</div>';
 
                         for (const { value, realm } of realmData) {
                             stat.tooltip.innerHTML += `<div class="mcs-realmed-entry">
@@ -341,15 +341,15 @@ export class Information extends HTMLElement {
             const mark = this._stats.find(stat => stat.key === PlotKey.Mark);
             const drops = this._stats.find(stat => stat.key === PlotKey.Drops);
 
-            highestDamageTaken.tooltip.textContent = `Highest Hit Taken: ${numberWithCommas(
+            highestDamageTaken.tooltip.textContent = `最高承受伤害：${numberWithCommas(
                 this._outputValue(information.data, information.data.highestDamageTaken)
             )}`;
 
-            highestReflect.tooltip.textContent = `Highest Reflect Taken: ${numberWithCommas(
+            highestReflect.tooltip.textContent = `最高反射伤害：${numberWithCommas(
                 this._outputValue(information.data, information.data.highestReflectDamageTaken)
             )}`;
 
-            lowestHitpoints.tooltip.textContent = `Lowest Hitpoints: ${numberWithCommas(
+            lowestHitpoints.tooltip.textContent = `最低生命值：${numberWithCommas(
                 this._outputValue(information.data, information.data.lowestHitpoints)
             )}`;
 
@@ -393,15 +393,15 @@ export class Information extends HTMLElement {
 
             drops.tooltip.innerHTML =
                 Global.stores.plotter.state.selectedDrop === 'mcs:none'
-                    ? 'Kills multiplied by doubling chance. (includes chance to receive no drops)'
-                    : 'Drop chance for selected item.';
+                    ? '击杀数乘以双倍几率。（包括没有掉落的机会）'
+                    : '所选物品的掉落几率。';
 
             drops.label.textContent =
                 Global.stores.plotter.state.selectedDrop === Drops.noneItem
                     ? 'Drops'
                     : Global.game.items.getObjectByID(Global.stores.plotter.state.selectedDrop).name;
         } else {
-            this._title.textContent = 'Information';
+            this._title.textContent = '信息';
             this._monsterInformation.classList.remove('is-open');
         }
     }
@@ -516,7 +516,7 @@ export class Information extends HTMLElement {
             return 'N/A';
         }
 
-        return `<span>${estDeathRate} Est. Deaths/${Global.stores.plotter.timeShorthand}</span><br/>`;
+        return `<span>${estDeathRate} 预计死亡/${Global.stores.plotter.timeShorthand}</span><br/>`;
     }
 
     private _getRuneTooltip(runesUsed: { [index: string]: number }, killTimeS: number) {
@@ -538,11 +538,11 @@ export class Information extends HTMLElement {
         }
 
         if (tooltip.length > 0) {
-            tooltip = `<div>Runes / ${Global.stores.plotter.timeOption}<br/>${tooltip}</div>`;
+            tooltip = `<div>符文 / ${Global.stores.plotter.timeOption}<br/>${tooltip}</div>`;
 
             return tooltip;
         } else {
-            return 'No runes used.';
+            return '未使用符文。';
         }
     }
 
@@ -557,7 +557,7 @@ export class Information extends HTMLElement {
             return 'N/A';
         }
 
-        let tooltip = `<span>${xpPerPP.toFixed(2)} Prayer XP/Point</span><br/>`;
+        let tooltip = `<span>${xpPerPP.toFixed(2)} 祈祷 XP/点</span><br/>`;
 
         tooltip = `<div>${tooltip}</div>`;
 
@@ -596,7 +596,7 @@ export class Information extends HTMLElement {
                 }" /><span>${percentage.toFixed(2)}%</span></div>`;
             }
         } else {
-            tooltip += `No marks available.`;
+            tooltip += `无可用标记。`;
         }
 
         return tooltip;

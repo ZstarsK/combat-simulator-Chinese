@@ -61,7 +61,7 @@ export class SaveSlots extends HTMLElement {
         this._container.innerHTML = '';
 
         for (let i = 0; i < this._max; i++) {
-            const defaultName = `Save Slot ${i + 1}`;
+            const defaultName = `保存槽位 ${i + 1}`;
             const slotElement = createElement('button', { classList: ['mcs-button'], text: `${i + 1}` });
             const tooltip = createElement('div', {
                 attributes: [['data-mcsTooltipContent', '']],
@@ -120,7 +120,7 @@ export class SaveSlots extends HTMLElement {
         try {
             await SaveSlot.save(`${this._key}-${index}-${currentCharacter}`, saveSlot);
         } catch (error) {
-            Global.logger.error(`Failed to save slot to indexeddb.`, error);
+            Global.logger.error(`保存槽位到 indexeddb 失败。`, error);
         }
 
         this._slots[index] = saveSlot;
@@ -138,7 +138,7 @@ export class SaveSlots extends HTMLElement {
                         localStorage.removeItem(`${this._key}-${i}-${currentCharacter}`);
                     }
                 } catch (error) {
-                    Global.logger.error('Failed to migrated existing save slot', error);
+                    Global.logger.error('迁移现有保存槽位失败', error);
                 }
 
                 const save: SaveSlotData | null = await SaveSlot.get(`${this._key}-${i}-${currentCharacter}`);
@@ -148,7 +148,7 @@ export class SaveSlots extends HTMLElement {
                 }
             }
         } catch (error) {
-            Global.logger.error(`Failed to load save slots`, error);
+            Global.logger.error(`加载保存槽位失败`, error);
         }
     }
 }

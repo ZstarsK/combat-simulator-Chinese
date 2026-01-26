@@ -1,11 +1,11 @@
 <template id="mcs-simulate-template">
     <div class="mcs-header-with-button">
         <mcs-page-title
-            page-title="Simulate"
-            description="Simulate your configuration against targets to see the results."
+            page-title="模拟"
+            description="模拟您的配置对抗目标以查看结果。"
         ></mcs-page-title>
-        <button id="mcs-inspect" class="mcs-button mcs-inspect">Inspect</button>
-        <button id="mcs-stop-inspect" class="mcs-button mcs-stop-inspect">Stop Inspecting</button>
+        <button id="mcs-inspect" class="mcs-button mcs-inspect">检查</button>
+        <button id="mcs-stop-inspect" class="mcs-button mcs-stop-inspect">停止检查</button>
     </div>
 
     <div class="mcs-simulate-button-container">
@@ -18,11 +18,11 @@
             class="mcs-simulate-slayer-task"
             data-mcsOnText="Yes"
             data-mcsOffText="No"
-            data-mcsName="On Slayer Task"
+            data-mcsName="屠杀者任务中"
         ></mcs-switch>
 
         <div class="mcs-simulate-toggle-container">
-            <div class="mcs-simulate-toggle-title">Toggle</div>
+            <div class="mcs-simulate-toggle-title">切换</div>
 
             <div class="mcs-simulate-toggle">
                 <mcs-button-image
@@ -31,7 +31,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/combat.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Normal Non Barrier Monsters</div>
+                    <div data-mcsTooltipContent>切换普通非屏障怪物</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-barrier-monsters"
@@ -39,7 +39,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/barrier.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Barrier Monsters</div>
+                    <div data-mcsTooltipContent>切换屏障怪物</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-abyssal-monsters"
@@ -47,7 +47,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/abyssal_damage.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Abyssal Non Barrier Monsters</div>
+                    <div data-mcsTooltipContent>切换深渊非屏障怪物</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-dungeons"
@@ -55,7 +55,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/dungeon.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Dungeons</div>
+                    <div data-mcsTooltipContent>切换地牢</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-strongholds"
@@ -63,7 +63,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/strongholds.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Strongholds</div>
+                    <div data-mcsTooltipContent>切换据点</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-depths"
@@ -71,7 +71,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/combat/the_abyss.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Abyss Depths</div>
+                    <div data-mcsTooltipContent>切换深渊深度</div>
                 </mcs-button-image>
                 <mcs-button-image
                     id="mcs-toggle-slayer"
@@ -79,7 +79,7 @@
                     data-mcsTooltip
                     data-mcsSrc="assets/media/skills/slayer/slayer.svg"
                 >
-                    <div data-mcsTooltipContent>Toggle Slayer</div>
+                    <div data-mcsTooltipContent>切换屠杀者</div>
                 </mcs-button-image>
             </div>
         </div>
@@ -98,9 +98,9 @@
             <mcs-dropdown id="mcs-select-target" class="mcs-select-target"></mcs-dropdown>
 
             <button id="mcs-active-target" class="mcs-button mcs-active-target" data-mcsTooltip>
-                Select Active Target
+                选择活动目标
                 <div data-mcsTooltipContent>
-                    Select the target you are actively fighting in the actual game. If not in combat, does nothing.
+                    选择您在实际游戏中正在战斗的目标。如果不在战斗中，则无效。
                 </div>
             </button>
         </div>

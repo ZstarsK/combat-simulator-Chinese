@@ -37,7 +37,7 @@ export class Simulation {
     public readonly simulator = new Simulator();
 
     public get notSimulatedReason() {
-        return 'entity not simulated';
+        return '实体未模拟';
     }
 
     public monsterSimData: { [index: string]: SimulationData } = {};
@@ -130,7 +130,7 @@ export class Simulation {
     public newSimDataEntry(isMonster: boolean): SimulationData {
         const data: any = {
             simSuccess: false,
-            reason: this.notSimulatedReason,
+            reason: '实体未模拟',
             adjustedRates: {}
         };
 
@@ -151,27 +151,27 @@ export class Simulation {
     }
 
     public getSimFailureText(data: SimulationData, includeHints = false) {
-        const prefix = 'No valid simulation data';
+        const prefix = '无有效的模拟数据';
 
         if (includeHints && Lookup.isDungeon(data.entityId)) {
             if (data.entityId === 'melvorTotH:Lair_of_the_Spider_Queen') {
-                return `This dungeons results are not accurate.<br /><a class="mcs-monster-note-hint">Hover for more information.</a>
+                return `此地牢的结果不准确。<br /><a class="mcs-monster-note-hint">悬停查看更多信息。</a>
                 <div data-mcsTooltipContent>
-                    Lair of the Spider Queen contains randomly generated monsters and bosses. Inspect the dungeon to see all possible monsters you may fight, however this is not reflective of the actual dungeon.
+                    蜘蛛女王巢穴包含随机生成的怪物和首领。检查地牢以查看您可能战斗的所有怪物，但这并不反映实际地牢的情况。
                 </div>`;
             }
 
             if (data.entityId === 'melvorF:Into_the_Mist') {
-                return `This dungeons results are not accurate.<br /><a class="mcs-monster-note-hint">Hover for more information.</a>
+                return `此地牢的结果不准确。<br /><a class="mcs-monster-note-hint">悬停查看更多信息。</a>
                 <div data-mcsTooltipContent>
-                    Into the Mists contains randomly generated monsters before the final boss. Inspect the dungeon to see all possible monsters you may fight, however this is not reflective of the actual dungeon.
+                    迷雾深处在最终首领之前包含随机生成的怪物。检查地牢以查看您可能战斗的所有怪物，但这并不反映实际地牢的情况。
                 </div>`;
             }
 
             if (data.entityId === 'melvorF:Impending_Darkness') {
-                return `This dungeons results are not accurate.<br /><a class="mcs-monster-note-hint">Hover for more information.</a>
+                return `此地牢的结果不准确。<br /><a class="mcs-monster-note-hint">悬停查看更多信息。</a>
                 <div data-mcsTooltipContent>
-                   Impending Darkness contains randomly selected modifiers which cannot be accounted for, in addition the boss attack style is randomly chosen. Inspect the dungeon to see all possible attack styles of the boss, however this is not reflective of the actual dungeon.
+                   迫近黑暗包含无法计算的随机选择的修饰符，此外首领的攻击风格是随机选择的。检查地牢以查看首领的所有可能攻击风格，但这并不反映实际地牢的情况。
                 </div>`;
             }
         }
@@ -180,12 +180,12 @@ export class Simulation {
             if (data.tickCount >= Global.stores.simulator.state.ticks * Global.stores.simulator.state.trials) {
                 if (includeHints) {
                     return `
-                    Insufficient simulation time: ${data.reason}.<br /><a class="mcs-monster-note-hint">Hover for more information.</a>
+                    模拟时间不足：${data.reason}。<br /><a class="mcs-monster-note-hint">悬停查看更多信息。</a>
                     <div data-mcsTooltipContent>
-                        This failure means that the results may not be accurate because you did not kill the target fast enough.<br /><br />Try increasing trials and ticks in Settings or improve your skills/gear.
+                        此失败意味着结果可能不准确，因为您没有足够快地击杀目标。<br /><br />尝试在设置中增加试验次数和Tick数，或提升您的技能/装备。
                     </div>`;
                 } else {
-                    return `Insufficient simulation time: ${data.reason}.`;
+                    return `模拟时间不足：${data.reason}。`;
                 }
             }
 
@@ -193,7 +193,7 @@ export class Simulation {
         }
 
         if (!data.simSuccess) {
-            return `${prefix}: unknown simulation error.`;
+            return `${prefix}：未知的模拟错误。`;
         }
 
         return '';
@@ -388,7 +388,7 @@ export class Simulation {
             try {
                 callback(0, this.queue.length);
             } catch (exception) {
-                Global.logger.error(`Failed to call onQueue callback.`, exception);
+                Global.logger.error(`调用队列回调失败。`, exception);
             }
         }
 
@@ -425,7 +425,7 @@ export class Simulation {
                         for (const monster of monsters) {
                             this.monsterSimData[
                                 this.simId(monster.id, Global.stores.plotter.state.inspectedId)
-                            ].reason = 'You do not meet the requirements to start the stronghold';
+                            ].reason = '您不满足开始据点的要求';
                         }
 
                         return;
@@ -482,7 +482,7 @@ export class Simulation {
                     someAreaNotSimulated = true;
 
                     for (const monster of area.monsters) {
-                        this.monsterSimData[monster.id].reason = 'cannot access area';
+                        this.monsterSimData[monster.id].reason = '无法访问区域';
                     }
                 }
 
@@ -540,7 +540,7 @@ export class Simulation {
         }
 
         if (someAreaNotSimulated) {
-            Notify.message(`Some slayer areas could not be simulated as you cannot access the area.`, 'danger');
+            Notify.message(`由于您无法访问该区域，某些屠杀者区域无法模拟。`, 'danger');
         }
     }
 
@@ -568,7 +568,7 @@ export class Simulation {
 
     private resetSelectedSimulation() {
         if (!Global.stores.plotter.state.isBarSelected && !Global.stores.plotter.state.isInspecting) {
-            Notify.message('There is nothing selected!', 'danger');
+            Notify.message('没有选择任何内容！', 'danger');
             return;
         }
 
@@ -582,14 +582,14 @@ export class Simulation {
             if (this.validateSlayerMonster(monster)) {
                 this.pushMonsterToQueue(Global.stores.plotter.selectedMonsterId, undefined);
             } else {
-                Notify.message('You do not have the requirements to fight this monster.', 'danger');
+                Notify.message('您没有战斗此怪物的要求。', 'danger');
                 return;
             }
 
             if (this.monsterSimFilter[Global.stores.plotter.selectedMonsterId]) {
                 this.pushMonsterToQueue(Global.stores.plotter.selectedMonsterId, undefined);
             } else {
-                Notify.message('The selected monster is filtered!', 'danger');
+                Notify.message('所选怪物已被过滤！', 'danger');
             }
 
             return;
@@ -623,7 +623,7 @@ export class Simulation {
                     const monster = Lookup.monsters.getObjectByID(Global.stores.plotter.selectedMonsterId);
 
                     if (!task) {
-                        throw new Error(`Could not find task: ${taskId}`);
+                        throw new Error(`找不到任务：${taskId}`);
                     }
 
                     this.queueSlayerMonster(task, monster);
@@ -633,7 +633,7 @@ export class Simulation {
                 return;
             }
 
-            Notify.message('The selected task is filtered!', 'danger');
+            Notify.message('所选任务已被过滤！', 'danger');
 
             return;
         }
@@ -678,9 +678,9 @@ export class Simulation {
                                 : this.strongholdSimData[this.simId(entityId)];
 
                         sim.isSkipped = true;
-                        sim.reason = 'You do not meet the requirements to start the stronghold';
+                        sim.reason = '您不满足开始据点的要求';
 
-                        Notify.message(`You do not meet the requirements to start the stronghold.`, 'danger');
+                        Notify.message(`您不满足开始据点的要求。`, 'danger');
                         return true;
                     }
                 }
@@ -691,7 +691,7 @@ export class Simulation {
             }
 
             if (!filter) {
-                throw new Error(`Could not locate filter for ${entityId}.`);
+                throw new Error(`无法找到 ${entityId} 的过滤器。`);
             }
 
             if (Global.stores.plotter.state.isInspecting || filter[entityId]) {
@@ -713,7 +713,7 @@ export class Simulation {
                 return true;
             }
 
-            Notify.message('The selected entity is filtered!', 'danger');
+            Notify.message('所选实体已被过滤！', 'danger');
 
             return true;
         }
@@ -757,9 +757,9 @@ export class Simulation {
         if (!didQueueAnyMonsters && !isAll) {
             this.slayerSimData[taskId].isSkipped = true;
             this.slayerSimData[taskId].reason =
-                'You do not have the requirements to fight any monster in this slayer task.';
+                '您没有战斗此屠杀者任务中任何怪物的要求。';
 
-            Notify.message('You do not have the requirements to fight any monster in this slayer task.', 'danger');
+            Notify.message('您没有战斗此屠杀者任务中任何怪物的要求。', 'danger');
         }
 
         return didQueueAnyMonsters;
@@ -777,17 +777,17 @@ export class Simulation {
         const area = Global.game.getMonsterArea(monster);
 
         if (!(area instanceof SlayerArea) && !this.validateSlayerMonster(monster)) {
-            this.monsterSimData[monster.id].reason = 'cannot access area';
+            this.monsterSimData[monster.id].reason = '无法访问区域';
             return false;
         }
 
         if (area.realm.id !== task.realm.id || area.id === 'melvorD:UnknownArea' || !categoryFilter(monster)) {
-            this.monsterSimData[monster.id].reason = 'cannot access area';
+            this.monsterSimData[monster.id].reason = '无法访问区域';
             return false;
         }
 
         if (!Global.game.combat.checkDamageTypeRequirementsForMonster(monster, false)) {
-            this.monsterSimData[monster.id].reason = 'This monster is immune to your current Damage Type';
+            this.monsterSimData[monster.id].reason = '此怪物对您当前的伤害类型免疫';
             return false;
         }
 
@@ -799,7 +799,7 @@ export class Simulation {
                 area instanceof SlayerArea
             )
         ) {
-            this.monsterSimData[monster.id].reason = 'cannot access area';
+            this.monsterSimData[monster.id].reason = '无法访问区域';
             return false;
         }
 
@@ -871,7 +871,7 @@ export class Simulation {
                 try {
                     callback(this.current - 1, this.queue.length);
                 } catch (exception) {
-                    Global.logger.error(`Failed to call onQueue callback.`, exception);
+                    Global.logger.error(`调用队列回调失败。`, exception);
                 }
             }
 
@@ -934,7 +934,7 @@ export class Simulation {
 
         if (isNewRun) {
             Global.logger.log(
-                `Elapsed Simulation Time: ${performance.now() - Global.stores.simulator.state.startTime} ms`
+                `模拟耗时：${performance.now() - Global.stores.simulator.state.startTime} 毫秒`
             );
 
             if (Global.stores.simulator.state.trackHistory) {
@@ -953,7 +953,7 @@ export class Simulation {
         // check filter
         if (!filter) {
             averageData.simSuccess = false;
-            averageData.reason = 'entity filtered';
+            averageData.reason = '实体已过滤';
             return;
         }
 
@@ -1147,7 +1147,7 @@ export class Simulation {
                 monsterId: request.monsterId,
                 entityId: request.entityId,
                 time: 0,
-                result: { simSuccess: false, reason: error?.message ?? 'An error was thrown during simulation.' }
+                result: { simSuccess: false, reason: error?.message ?? '模拟过程中发生错误。' }
             };
 
             return response;

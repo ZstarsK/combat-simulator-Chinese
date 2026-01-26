@@ -256,7 +256,7 @@ export class SpellsPage extends HTMLElement {
 
             if (!spell.spellbook.canUseWithDamageType(Global.game.combat.player.damageType)) {
                 Notify.message(
-                    `This spell cannot be used with ${Global.game.combat.player.damageType.name}`,
+                    `此法术无法与 ${Global.game.combat.player.damageType.name} 一起使用`,
                     'danger',
                     Global.game.altMagic.media
                 );
@@ -314,7 +314,7 @@ export class SpellsPage extends HTMLElement {
             return aurora;
         }
 
-        Global.logger.error(`Invalid spell id`, spellId);
+        Global.logger.error(`无效的法术ID`, spellId);
     }
 }
 

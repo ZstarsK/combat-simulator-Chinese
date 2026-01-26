@@ -65,7 +65,7 @@ export abstract class PageController {
             try {
                 callback(this.pageId);
             } catch (exception) {
-                Global.logger.error(`Error thrown from onPage callback`, exception);
+                Global.logger.error(`页面回调中抛出错误`, exception);
             }
         }
     }

@@ -20,38 +20,38 @@ export abstract class Bugs {
         const dialog = createElement('mcs-dialog', { id: 'mcs-bugs' });
 
         if (isWillIDie) {
-            dialog.innerHTML += `<div slot="header">Remove Will I Die</div>
+            dialog.innerHTML += `<div slot="header">移除 Will I Die</div>
                 <div slot="content" class="mcs-with-textarea">
-                    <div>You have Will I Die installed!</div>
+                    <div>您已安装 Will I Die！</div>
                     <br />
-                    <div>This mod has not been updated for the current version of the game and should be disabled. This outdated version of Will I Die results in Combat Simulator failing to run.</div>
+                    <div>此模组尚未针对当前游戏版本进行更新，应禁用。此过时版本的 Will I Die 会导致战斗模拟器无法运行。</div>
                     <br />
-                    <div>Please review ALL your mods!</div>
+                    <div>请检查您的所有模组！</div>
                     <textarea readonly="readonly" class="mcs-bugs-content form-control mcs-code" rows="4"></textarea>
                 </div>
 
                 <div slot="footer">
-                    <button id="mcs-bugs-done" class="mcs-button">Done</button>
+                    <button id="mcs-bugs-done" class="mcs-button">完成</button>
                 </div>
                 `;
         } else {
             if (error) {
-                dialog.innerHTML += `<div slot="header">Combat Simulator Error</div>`;
+                dialog.innerHTML += `<div slot="header">战斗模拟器错误</div>`;
             } else {
-                dialog.innerHTML += `<div slot="header">Found a bug?</div>`;
+                dialog.innerHTML += `<div slot="header">发现错误？</div>`;
             }
 
             dialog.innerHTML += `
                     <div slot="content" class="mcs-with-textarea">
-                        <div>Please reach out on the Melvor Discord mod bug reports channel for assistance.</div>
+                        <div>请在 Melvor Discord 模组错误报告频道寻求帮助。</div>
                         <br />
-                        <div>The following information contains your save file and a copy of your combat sim configuration if possible.</div>
+                        <div>以下信息包含您的存档文件和战斗模拟器配置的副本（如果可能）。</div>
                         <br />
                         <textarea readonly="readonly" class="mcs-bugs-content form-control mcs-code" rows="4"></textarea>
                     </div>
 
                     <div slot="footer">
-                        <button id="mcs-bugs-done" class="mcs-button">Done</button>
+                        <button id="mcs-bugs-done" class="mcs-button">完成</button>
                     </div>
                 `;
         }
@@ -72,7 +72,7 @@ export abstract class Bugs {
         textarea.onclick = () => textarea.setSelectionRange(0, textarea.value.length);
 
         if (error) {
-            textarea.value += `Message: ${error.message}\n\n---\n\n${error.stack}\n\n`;
+            textarea.value += `消息：${error.message}\n\n---\n\n${error.stack}\n\n`;
         }
 
         let expansionsOwned = [];
@@ -103,25 +103,25 @@ export abstract class Bugs {
             version = `?${version}`;
         }
 
-        textarea.value += `Melvor Version: ${gameVersion}${version}
-Sim Version: ${Global.context.version}
+        textarea.value += `Melvor 版本：${gameVersion}${version}
+模拟器版本：${Global.context.version}
 
-Expansions Enabled: ${expansionsOwned.join(', ')}
+已启用扩展：${expansionsOwned.join(', ')}
 
-Mod List:
+模组列表：
 `;
         for (const modName of mod.manager.getLoadedModList()) {
             textarea.value += ` - ${modName}\n`;
         }
 
         textarea.value += `
-Save Game String:
+存档字符串：
         `;
 
         textarea.value += game.generateSaveString();
         textarea.value += `
 
-Sim String:
+模拟器字符串：
 
 `;
         try {

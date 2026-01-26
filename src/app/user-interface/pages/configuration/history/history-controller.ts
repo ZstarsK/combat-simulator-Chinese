@@ -19,7 +19,7 @@ export abstract class HistoryController {
     public static record(record: SimulationRecord) {
         this.id++;
 
-        const history: HistoryRecord = { id: this.id, name: `Simulation ${this.id}`, record };
+        const history: HistoryRecord = { id: this.id, name: `模拟 ${this.id}`, record };
 
         this.history.set(this.id, history);
         this.historyPage._record(history);

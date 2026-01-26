@@ -499,11 +499,11 @@ export abstract class EquipmentController {
             }
 
             if (requirements.length !== levelRequirements.length + abyssalLevelRequirements.length) {
-                requirements.push('And more...');
+                requirements.push('还有更多...');
             }
 
             if (requirements.length) {
-                tooltip += `<div class="mt-2">Requires:</div><div class="text-warning">${requirements
+                tooltip += `<div class="mt-2">要求：</div><div class="text-warning">${requirements
                     .map(requirement => `<div>${requirement}</div>`)
                     .join('')}</div>`;
             }

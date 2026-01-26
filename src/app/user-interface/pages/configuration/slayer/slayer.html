@@ -1,37 +1,37 @@
 <template id="mcs-slayer-template">
     <div class="mcs-header-with-button">
         <mcs-page-title
-            page-title="Slayer"
-            description="Modify your configuration for the slayer skill."
+            page-title="屠杀者"
+            description="修改您的屠杀者技能配置。"
         ></mcs-page-title>
 
-        <button id="mcs-slayer-clear" class="mcs-button mcs-slayer-clear">Clear</button>
+        <button id="mcs-slayer-clear" class="mcs-button mcs-slayer-clear">清除</button>
     </div>
 
     <div>
-        <div>Dungeon Completion</div>
+        <div>地牢完成</div>
         <div id="mcs-slayer-dungeon-completions" class="mcs-slayer-dungeon-completions"></div>
     </div>
 
     <div id="mcs-dungeon-abyss-depth-completions-container">
-        <div>Abyss Depth Completion</div>
+        <div>深渊深度完成</div>
         <div id="mcs-slayer-abyss-depth-completions" class="mcs-slayer-abyss-depth-completions"></div>
     </div>
 
     <div>
-        <div>Shop Purchases</div>
+        <div>商店购买</div>
         <div id="mcs-slayer-shop-purchases" class="mcs-slayer-shop-purchases"></div>
     </div>
 
     <div>
-        <div>Found Items</div>
+        <div>发现的物品</div>
         <div id="mcs-slayer-found-items" class="mcs-slayer-found-items"></div>
     </div>
 
     <mcs-switch
         id="mcs-slayer-ignore-requirements"
         class="mcs-slayer-ignore-requirements"
-        data-mcsName="Ignore Requirements"
-        data-mcsDescription="Enable to ignore all slayer requirements when simulating."
+        data-mcsName="忽略要求"
+        data-mcsDescription="启用后在模拟时忽略所有屠杀者要求。"
     ></mcs-switch>
 </template>

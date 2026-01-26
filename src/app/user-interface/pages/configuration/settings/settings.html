@@ -1,25 +1,23 @@
 <template id="mcs-settings-template">
-    <mcs-page-title page-title="Settings" description="Advanced settings for your configuration."></mcs-page-title>
+    <mcs-page-title page-title="设置" description="配置的高级设置。"></mcs-page-title>
 
     <div id="mcs-settings-container" class="mcs-settings-container">
         <mcs-field data-mcssmall>
-            <span slot="text">Trials</span>
+            <span slot="text">试验次数</span>
             <input id="mcs-settings-trials" type="number" min="1" max="100000" class="form-control" />
             <mcs-hint slot="hint">
                 <span data-mcsTooltipContent>
-                    Trials is how many times the simulator will attempt to either defeat the target or die trying. Lower
-                    trials means less accurate results.
+                    试验次数是模拟器尝试击败目标或死亡尝试的次数。较低的试验次数意味着结果准确性较低。
                 </span>
             </mcs-hint>
         </mcs-field>
 
         <mcs-field data-mcssmall>
-            <span slot="text">Ticks</span>
+            <span slot="text">Tick数</span>
             <input id="mcs-settings-ticks" type="number" min="1" max="100000000" class="form-control" />
             <mcs-hint slot="hint">
                 <span data-mcsTooltipContent>
-                    Ticks is the maximum number of game ticks a single trial will run before giving up. This is a
-                    failsafe to prevent the simulator running forever.
+                    Tick数是单个试验在放弃前运行的最大游戏tick数。这是一个安全措施，用于防止模拟器永远运行。
                 </span>
             </mcs-hint>
         </mcs-field>
@@ -30,13 +28,13 @@
     <div class="mcs-settings-import-export">
         <mcs-page-title
             class="mcs-settings-import-export-title"
-            page-title="Import/Export"
-            description="Import a configuration or export your own configuration."
+            page-title="导入/导出"
+            description="导入配置或导出您自己的配置。"
         ></mcs-page-title>
 
         <div class="mcs-settings-import-export-buttons">
-            <button id="mcs-settings-import" class="mcs-button">Import</button>
-            <button id="mcs-settings-export" class="mcs-button">Export</button>
+            <button id="mcs-settings-import" class="mcs-button">导入</button>
+            <button id="mcs-settings-export" class="mcs-button">导出</button>
         </div>
     </div>
 
@@ -46,28 +44,28 @@
     <mcs-switch
         id="mcs-settings-alternate-equipment-selector"
         class="mcs-settings-alternate-equipment-selector"
-        data-mcsName="Alternate Equipment Selector"
-        data-mcsDescription="Enable to switch the equipment selector from tooltips to a popup when selecting an item."
+        data-mcsName="备用装备选择器"
+        data-mcsDescription="启用后，在选择物品时，装备选择器将从工具提示切换为弹出窗口。"
     ></mcs-switch>
 
     <mcs-switch
         id="mcs-settings-small-plotter"
         class="mcs-settings-small-plotter"
-        data-mcsName="Small Plotter"
-        data-mcsDescription="Enable to reduce the size of the plotter."
+        data-mcsName="小型图表"
+        data-mcsDescription="启用后减小图表的大小。"
     ></mcs-switch>
 
     <mcs-switch
         id="mcs-settings-filter-target-dropdown"
         class="mcs-settings-filter-target-dropdown"
-        data-mcsName="Filter Target Dropdown"
-        data-mcsDescription="Enable to filter the target dropdown on the plotter to only enabled targets."
+        data-mcsName="过滤目标下拉菜单"
+        data-mcsDescription="启用后，图表上的目标下拉菜单将仅显示已启用的目标。"
     ></mcs-switch>
 
     <mcs-switch
         id="mcs-settings-import-on-first-open"
         class="mcs-settings-import-on-first-open"
-        data-mcsName="Import On First Open"
-        data-mcsDescription="Enable to import your current configuration from the game when you first open combat simulator."
+        data-mcsName="首次打开时导入"
+        data-mcsDescription="启用后，首次打开战斗模拟器时将从游戏导入当前配置。"
     ></mcs-switch>
 </template>

@@ -90,9 +90,9 @@ export class ImportDialog extends HTMLElement {
 
                 DialogController.close();
             } catch (exception) {
-                this._failure.textContent = `Failed to import settings. ${exception.stack}`;
+                this._failure.textContent = `导入设置失败。${exception.stack}`;
                 this._failureContainer.style.display = 'block';
-                Global.logger.error(`Failed to import settings.`, exception, this._textarea.value);
+                Global.logger.error(`导入设置失败。`, exception, this._textarea.value);
             }
         };
 
