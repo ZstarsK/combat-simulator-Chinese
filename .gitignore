@@ -17,3 +17,5 @@ Extension/build
 node_modules
 build
 .output
+
+.DS_Store

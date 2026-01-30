@@ -10,6 +10,19 @@ import { Switch } from 'src/app/user-interface/_parts/switch/switch';
 import { ButtonImage } from 'src/app/user-interface/_parts/button-image/button-image';
 import { StorageKey } from 'src/app/utils/account-storage';
 
+/** 技能下拉选项的显示名称（汉化） */
+const SKILL_DISPLAY_NAMES: Record<string, string> = {
+    Attack: '攻击',
+    Strength: '力量',
+    Defence: '防御',
+    Hitpoints: '生命值',
+    Ranged: '远程',
+    Magic: '魔法',
+    Prayer: '祝祭',
+    Slayer: '屠杀者',
+    Corruption: '腐蚀'
+};
+
 declare global {
     interface HTMLElementTagNameMap {
         'mcs-simulate': SimulatePage;
@@ -139,10 +152,10 @@ export class SimulatePage extends HTMLElement {
 
         this._skill._init({
             search: false,
-            label: 'Skill',
+            label: '技能',
             default: Global.stores.plotter.state.selectedSkill,
             options: skillLocalIds.map(name => ({
-                text: name,
+                text: SKILL_DISPLAY_NAMES[name] ?? name,
                 value: name
             })),
             onChange: option => this._onSkillChange(option)
@@ -162,7 +175,7 @@ export class SimulatePage extends HTMLElement {
 
         this._plotType._init({
             search: false,
-            label: 'Plot Type',
+            label: '图表类型',
             default: Global.stores.plotter.plotType.key,
             options: plotTypeOptions,
             onChange: option => this._onPlotTypeChange(option)

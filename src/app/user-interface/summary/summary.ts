@@ -131,7 +131,7 @@ export class SummaryPage extends HTMLElement {
                 container.append(this._lineItem(prayer.name, [prayer.media]));
             }
         } else {
-            container.append(this._lineItem('无祈祷', [Global.game.prayer.media]));
+            container.append(this._lineItem('无祝祭', [Global.game.prayer.media]));
         }
 
         if (Global.game.combat.player.potion) {

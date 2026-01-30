@@ -74,21 +74,21 @@ export class Information extends HTMLElement {
                 element: getElementFromFragment(this._content, `mcs-information-prayer-xp`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-prayer-xp-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-prayer-xp-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. Prayer XP' : 'Prayer XP')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. 祝祭 XP' : '祝祭 XP')
             },
             {
                 key: PlotKey.SlayerXP,
                 element: getElementFromFragment(this._content, `mcs-information-slayer-xp`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-slayer-xp-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-slayer-xp-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. Slayer XP' : 'Slayer XP')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. 屠杀者 XP' : '屠杀者 XP')
             },
             {
                 key: PlotKey.SummoningXP,
                 element: getElementFromFragment(this._content, `mcs-information-summoning-xp`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-summoning-xp-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-summoning-xp-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. Summoning XP' : 'Summoning XP')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. 召唤 XP' : '召唤 XP')
             },
             {
                 key: PlotKey.CorruptionXP,
@@ -99,15 +99,14 @@ export class Information extends HTMLElement {
                 element: getElementFromFragment(this._content, `mcs-information-prayer-point-gained`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-prayer-point-gained-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-prayer-point-gained-label`, 'span'),
-                realmLabel: (realmId: string) =>
-                    realmId === 'melvorItA:Abyssal' ? 'Soul P. Gained' : 'Prayer P. Gained'
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? '魂点每次获得' : '祝祭点每次获得')
             },
             {
                 key: PlotKey.PrayerPointsUsed,
                 element: getElementFromFragment(this._content, `mcs-information-prayer-point-used`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-prayer-point-used-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-prayer-point-used-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'Soul P. Used' : 'Prayer P. Used')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? '魂点每次使用' : '祝祭点每次使用')
             },
             { key: PlotKey.AmmoUsed, element: getElementFromFragment(this._content, `mcs-information-ammo`, 'span') },
             {
@@ -169,7 +168,7 @@ export class Information extends HTMLElement {
                 element: getElementFromFragment(this._content, `mcs-information-raw-gp`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-raw-gp-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-raw-gp-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'Raw AP' : 'Raw GP')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? '原始 AP' : '原始 GP')
             },
             {
                 key: PlotKey.Drops,
@@ -194,7 +193,7 @@ export class Information extends HTMLElement {
                 element: getElementFromFragment(this._content, `mcs-information-slayer-coins`, 'span'),
                 tooltip: getElementFromFragment(this._content, 'mcs-information-slayer-coins-tooltip', 'div'),
                 label: getElementFromFragment(this._content, `mcs-information-slayer-coins-label`, 'span'),
-                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. Slayer Coins' : 'Slayer Coins')
+                realmLabel: (realmId: string) => (realmId === 'melvorItA:Abyssal' ? 'A. 屠杀者硬币' : '屠杀者硬币')
             }
         ];
 
@@ -227,13 +226,13 @@ export class Information extends HTMLElement {
     public _setPetType(name: string | undefined) {
         const pet = this._stats.find(stat => stat.key === PlotKey.Pet);
 
-        pet.label.textContent = `${name ? name + ' ' : ''}Pet (%)`;
+        pet.label.textContent = `${name ? name + ' ' : ''}宠物 (%)`;
     }
 
     public _setMarkType(name: string | undefined) {
         const mark = this._stats.find(stat => stat.key === PlotKey.Mark);
 
-        mark.label.textContent = `${name ? name + ' ' : ''}Mark (%)`;
+        mark.label.textContent = `${name ? name + ' ' : ''}标记 (%)`;
     }
 
     public _update() {
@@ -294,8 +293,7 @@ export class Information extends HTMLElement {
                         stat.element.style.color = 'var(--mcs-information-multiple-realms-color)';
                         stat.element.parentElement.toggleAttribute('data-mcsTooltipDisabled', false);
 
-                        stat.tooltip.innerHTML =
-                            '<div class="mcs-realmed-text">此条目包含其他领域的数据。</div>';
+                        stat.tooltip.innerHTML = '<div class="mcs-realmed-text">此条目包含其他领域的数据。</div>';
 
                         for (const { value, realm } of realmData) {
                             stat.tooltip.innerHTML += `<div class="mcs-realmed-entry">
@@ -398,7 +396,7 @@ export class Information extends HTMLElement {
 
             drops.label.textContent =
                 Global.stores.plotter.state.selectedDrop === Drops.noneItem
-                    ? 'Drops'
+                    ? '掉落'
                     : Global.game.items.getObjectByID(Global.stores.plotter.state.selectedDrop).name;
         } else {
             this._title.textContent = '信息';
@@ -557,7 +555,7 @@ export class Information extends HTMLElement {
             return 'N/A';
         }
 
-        let tooltip = `<span>${xpPerPP.toFixed(2)} 祈祷 XP/点</span><br/>`;
+        let tooltip = `<span>${xpPerPP.toFixed(2)} 祝祭 XP/点</span><br/>`;
 
         tooltip = `<div>${tooltip}</div>`;
 
